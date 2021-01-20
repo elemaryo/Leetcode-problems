@@ -8,18 +8,19 @@
 #	highestPrice = 3 - 1
 # return 2
 
-def stockPrice(stock: list):
-  # always get the combination and see whats remains max
-  #return max sum
-  
-    maxProfit = 0
-    minProfit = float("inf")
-  
-  for i in range(len(stock)):
-    if stock[i] < minProfit:
-      minProfit = stock[i]
-    
-    if (stock[i] > minProfit) and (stock[i] - minProfit > maxProfit):
-      maxProfit = stock[i] - minProfit
-    
-  return maxProfit
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        # always get the combination and see whats remains max
+        # return max sum
+        maxProfit = 0
+        minimumPrice = float('inf')
+
+        for i in range(len(prices)):
+            if prices[i] < minimumPrice:
+                minimumPrice = prices[i]
+
+            elif prices[i] > minimumPrice and prices[i] - minimumPrice > maxProfit:
+                maxProfit = prices[i] - minimumPrice
+
+        return maxProfit
